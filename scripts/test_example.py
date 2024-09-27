@@ -28,6 +28,6 @@ def test_linalg():
     
     assert np.allclose(A+B,B+A,atol=tolerance)
     assert np.allclose((A@B)@C,A@(B@C),atol=tolerance)
-    assert np.linalg.matrix_rank(A)==np.linalg.matrix_rank(np.matrix_transpose(A))
+    assert np.linalg.matrix_rank(A)==np.linalg.matrix_rank(A.T) #change syntax
     assert abs(np.linalg.det(A@B)-np.linalg.det(A)*np.linalg.det(B))<tolerance
-    assert np.allclose(np.linalg.eigvals(A),np.linalg.eigvals(np.matrix_transpose(A)),atol=tolerance)
+    assert np.allclose(np.linalg.eigvals(A),np.linalg.eigvals(A.T),atol=tolerance) #syntax change
